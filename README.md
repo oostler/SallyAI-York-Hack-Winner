@@ -1,5 +1,9 @@
 # MedAIHack
 
+***Edit: This project won us the 2025 Artificial Intelligence in Health Care Society's annual hackathon
+Authors: Owen Ostler, Thomas Shvekher, and Alp Unsal
+
+
 MedAIHack is an AI-powered voice assistant designed for medical check-ins with a focus on thyroid assessments. This project was built during Hackathon York U to demonstrate how modern APIs and cloud services can be combined to streamline healthcare interactions. In this README, you'll not only find instructions on how to set up and run the project but also learn the rationale behind many of our key technical decisions.
 
 ## Table of Contents
