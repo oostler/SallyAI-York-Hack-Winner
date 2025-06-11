@@ -1,5 +1,2 @@
-<<<<<<< HEAD
-# Ignore environment variable files
-=======
->>>>>>> alp
 .env
+.twilio_call.py
