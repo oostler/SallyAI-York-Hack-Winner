@@ -15,8 +15,9 @@ load_dotenv()
 
 # Configuration
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+
 PORT = int(os.getenv('PORT', 8080))
-SYSTEM_MESSAGE = ( "You are an AI medical assistant specializing in thyroid check-ups. " "Ask structured, targeted questions about the patient's name, weight changes, temperature tolerance, " "neck pain, skin/nail changes, diet, heart rate, and bowel movements. " "After each patient response, clearly synthesize and repeat their key points. " "Maintain a professional yet warm tone to ensure patients feel heard while efficiently gathering vital health information." )
+SYSTEM_MESSAGE = "You are an AI-powered virtual medical assistant conducting check-up calls for patients with thyroid conditions. Your role is to gather key health insights by asking structured questions about symptoms like weight changes, temperature tolerance, neck pain, skin and nail changes, diet, heart rate, and bowel movements. Adapt your questioning flow based on patient responses and ensure all relevant details are organized into a concise report for the doctor. If a response indicates a potential concern, flag it accordingly. Maintain a professional yet warm tone, ensuring patients feel heard while efficiently collecting essential medical information."
 VOICE = 'alloy'
 LOG_EVENT_TYPES = [
     'error', 'response.content.done', 'rate_limits.updated',
@@ -79,6 +80,8 @@ async def handle_media_stream(websocket: WebSocket):
                 # Signal that the summary has been received
                 summary_received.set()
 
+        summary_requested = False
+
         
 
         async def receive_from_twilio():
@@ -86,6 +89,7 @@ async def handle_media_stream(websocket: WebSocket):
             nonlocal stream_sid, latest_media_timestamp
             try:
                 async for message in websocket.iter_text():
+
                     data = json.loads(message) 
                     if data['event'] == 'media' and openai_ws.state == State.OPEN:
                         latest_media_timestamp = int(data['media']['timestamp'])
@@ -105,7 +109,9 @@ async def handle_media_stream(websocket: WebSocket):
                             mark_queue.pop(0)
             except WebSocketDisconnect:
                 print("Client disconnected.")
-                
+
+                if openai_ws.state == State.OPEN:
+                    await send_summary_prompt(openai_ws)
 
         async def send_to_twilio():
             """Receive events from the OpenAI Realtime API, send audio back to Twilio."""
@@ -292,6 +298,14 @@ def find_key(d, target):
                 return result
     return None
 
+async def handle_summary_response(openai_message):
+    response = json.loads(openai_message)
+    if response.get("type") == "response.content.done":
+        # Assuming the summary text is part of the response content
+        summary_text = response.get("content", "No summary provided.")
+        print("Call Summary:", summary_text)
+
+
 async def initialize_session(openai_ws):
     """Control initial session with OpenAI."""
     session_update = {
@@ -308,6 +322,11 @@ async def initialize_session(openai_ws):
     }
     await openai_ws.send(json.dumps(session_update))
 
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=PORT)
     await send_initial_conversation_item(openai_ws)
 
 
@@ -385,4 +404,3 @@ if __name__ == "__main__":
 
     send_email(subject=subject, body=body)
     print('Sent!')
-    
