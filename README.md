@@ -56,12 +56,12 @@ steps:
 
 ## Inspiration & Impact
 
-inspiration:
+Inspiration:
   - SallyAI was inspired by the inefficiencies in clinical follow-ups for chronic conditions like thyroid disorders.
   - Our goal was to create a system that could replicate the efficiency and warmth of a real medical assistant, but scale instantly through automation.
   - The hackathon’s 6-hour time limit motivated us to build a fully functional prototype that proved how AI and cloud-based APIs can meaningfully assist healthcare delivery in real-world contexts.
 
-impact:
+Impact:
   - SallyAI demonstrates how conversational AI can reduce administrative burden for healthcare professionals by automating patient check-ins and documentation.
   - The system highlights the potential of GPT-4o for both real-time, speech-based medical interactions and structured medical reporting.
   - Its architecture can be adapted for other use cases such as mental health monitoring, remote triage, and chronic disease management.
