@@ -1,14 +1,18 @@
 # SallyAI
 
-**Winning Project – Artificial Intelligence in Healthcare Hackathon 2025, York University**  
-**Contributors:** Owen Ostler, Thomas Shvekher, and Alp Unsal  
-[Watch the Live Demo](https://www.loom.com/share/2d2c0a3c8157435d90771a2a54d9b075?sid=2885d0ff-8164-49ab-8859-f83a9c6341b6) [Read Our Hackathon Project Report (PDF)](https://github.com/oostler/SallyAI-York-Hack-Winner/blob/main/Medical%20AI%20Hackathon%20-%20Group%207.pdf)
+**Winning Project – Medical AI Hackathon 2025, York University**
+
+**Authors:** Owen Ostler, Thomas Shvekher, and Alp Unsal
+
+🎥 [Watch the Live Demo](https://www.loom.com/share/2d2c0a3c8157435d90771a2a54d9b075?sid=2885d0ff-8164-49ab-8859-f83a9c6341b6) 
+
+📖 [Read Our Hackathon Project Report (PDF)](https://github.com/oostler/SallyAI-York-Hack-Winner/blob/main/Medical%20AI%20Hackathon%20-%20Group%207.pdf)
+
 ---
 
 ## Overview  
 
-SallyAI is an AI-driven medical assistant built in just **6 hours** during the 2025 York University Artificial Intelligence in Health Care Society Hackathon.  
-It automates patient voice check-ins for thyroid-related conditions and generates structured summaries for physicians in real time.  
+SallyAI is an AI-driven medical assistant built in just **6 hours** during the 2025 York University Artificial Intelligence in Health Care Society Hackathon. It automates patient voice check-ins for thyroid-related conditions and generates structured summaries for physicians in real time.  
 
 The system integrates Twilio, FastAPI, and OpenAI’s GPT-4o models to deliver real-time conversational intelligence and automated clinical reporting.  
 By combining real-time audio streaming, natural language understanding, and email automation, SallyAI demonstrates how rapidly deployable, AI-powered tools can improve medical workflows.
