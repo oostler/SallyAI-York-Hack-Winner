@@ -1,6 +1,6 @@
 # MedAIHack
 
-***Edit: This project won us the 2025 Artificial Intelligence in Health Care Society's annual hackathon
+This project won us the York University 2025 Artificial Intelligence in Health Care Society's annual hackathon
 Authors: Owen Ostler, Thomas Shvekher, and Alp Unsal
 
 
