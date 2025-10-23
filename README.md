@@ -2,14 +2,7 @@
 
 **Winning Project – Artificial Intelligence in Healthcare Hackathon 2025, York University**  
 **Contributors:** Owen Ostler, Thomas Shvekher, and Alp Unsal  
-
----
-
-## See It In Action  
-[Watch the Live Demo](https://www.loom.com/share/2d2c0a3c8157435d90771a2a54d9b075?sid=2885d0ff-8164-49ab-8859-f83a9c6341b6)
-
-## Read the Full Report  
-[Read Our Hackathon Project Report (PDF)](https://github.com/oostler/SallyAI-York-Hack-Winner/blob/main/Medical%20AI%20Hackathon%20-%20Group%207.pdf)
+[Watch the Live Demo](https://www.loom.com/share/2d2c0a3c8157435d90771a2a54d9b075?sid=2885d0ff-8164-49ab-8859-f83a9c6341b6) [Read Our Hackathon Project Report (PDF)](https://github.com/oostler/SallyAI-York-Hack-Winner/blob/main/Medical%20AI%20Hackathon%20-%20Group%207.pdf)
 ---
 
 ## Overview  
