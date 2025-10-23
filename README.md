@@ -1,74 +1,46 @@
-# MedAIHack
+# SallyAI
 
-This project won us the York University 2025 Artificial Intelligence in Health Care Society's annual hackathon
-Authors: Owen Ostler, Thomas Shvekher, and Alp Unsal
+**Winning Project – Medical AI Hackathon 2025, York University**  
+**Authors:** Owen Ostler, Thomas Shvekher, and Alp Unsal  
 
+---
 
-MedAIHack is an AI-powered voice assistant designed for medical check-ins with a focus on thyroid assessments. This project was built during Hackathon York U to demonstrate how modern APIs and cloud services can be combined to streamline healthcare interactions. In this README, you'll not only find instructions on how to set up and run the project but also learn the rationale behind many of our key technical decisions.
+## See It In Action  
+[Watch the Live Demo](https://www.loom.com/share/2d2c0a3c8157435d90771a2a54d9b075?sid=2885d0ff-8164-49ab-8859-f83a9c6341b6)
 
-## Table of Contents
+---
 
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Technical Decisions and Rationale](#technical-decisions-and-rationale)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Environment Variables](#environment-variables)
-- [API Access and Usage](#api-access-and-usage)
-- [Email Configuration](#email-configuration)
-- [Running the Application](#running-the-application)
-- [Troubleshooting](#troubleshooting)
-- [License](#license)
+## Overview  
 
-## Overview
+SallyAI is an AI-driven medical assistant built in just **6 hours** during the 2025 York University Artificial Intelligence in Health Care Society Hackathon.  
+It automates patient voice check-ins for thyroid-related conditions, generating structured summaries for physicians in real time.  
 
-MedAIHack is a backend service built using Python that integrates several powerful APIs:
-- **FastAPI** provides high-performance HTTP and WebSocket support.
-- **Twilio** handles real-time audio streams, connecting patients with our AI.
-- **OpenAI Realtime API** processes and generates natural language responses on the fly.
-- **SMTP (via Gmail)** sends summary emails to healthcare professionals after each call.
+This project demonstrates how cutting-edge APIs and cloud infrastructure can be combined to create practical, medically assistive AI systems in limited time.
 
-## Key Features
+---
 
-- **Real-time Audio Streaming:** Connects Twilio's Media Streams to our backend, allowing for seamless audio interaction.
-- **Dynamic AI Interaction:** Uses the OpenAI Realtime API to generate contextually relevant responses during medical check-ins.
-- **Automated Summary Generation:** Summarizes call conversations and dispatches emails with the session's key insights.
-- **Modular and Configurable:** Environment variables are used to manage sensitive credentials and configuration settings.
+## Key Features  
 
-## Technical Decisions and Rationale
+- **Real-Time Voice Interaction** – Conducts natural, conversational patient check-ins via Twilio Media Streams.  
+- **Adaptive Question Flow** – Adjusts follow-up questions based on patient responses, targeting thyroid-specific symptoms (weight, heart rate, neck pain, etc.).  
+- **AI Summarization and Reporting** – Generates structured summaries using the OpenAI Realtime API and automatically emails them to physicians.  
+- **Secure Configuration** – Sensitive data like API keys and credentials are stored in environment variables.  
+- **Lightweight and Fast** – Built entirely within six hours using modern Python frameworks and APIs.
 
-### FastAPI
-- **Why FastAPI?**  
-  We chose FastAPI because of its modern design, high performance, and native support for asynchronous operations. This made it the ideal framework for handling both HTTP requests and WebSocket connections, which are essential for real-time audio streaming.
+---
 
-### Twilio Media Streams
-- **Why Twilio?**  
-  Twilio was selected for its robust and easy-to-integrate telephony API, especially its Media Streams feature, which allows us to stream audio in real time. This was crucial for building a responsive voice assistant capable of interacting with patients on the fly.
+## Technical Architecture  
 
-### OpenAI Realtime API
-- **Why OpenAI?**  
-  The decision to use OpenAI's Realtime API stemmed from our need for a powerful language model capable of understanding and generating human-like responses. Its ability to process natural language in real time makes it a perfect fit for interactive medical consultations.
+| Component | Purpose |
+|------------|----------|
+| **FastAPI** | Backend web framework for HTTP and WebSocket handling |
+| **Twilio Media Streams** | Captures and streams live patient audio |
+| **OpenAI GPT-4o Realtime API** | Processes and generates conversational responses |
+| **SMTP (Gmail)** | Sends automated email summaries |
+| **dotenv** | Manages configuration and credentials securely |
+| **asyncio / websockets** | Handles concurrent real-time data transfer |
 
-### Email via SMTP (Gmail)
-- **Why SMTP with Gmail?**  
-  For sending call summaries, we needed a reliable and widely supported email service. Gmail SMTP was chosen due to its ease of use, security features, and familiarity among users. We emphasize the importance of using environment variables to store sensitive information like credentials.
+---
 
-### Environment Variables
-- **Security and Flexibility:**  
-  Using environment variables (managed via a `.env` file) ensures that sensitive data such as API keys and email credentials are kept out of the codebase. This practice enhances security and makes the configuration easily adaptable to different environments.
+## Project Structure  
 
-## Prerequisites
-
-Before you begin, ensure you have the following:
-- **Python 3.8+** – The project is built with Python and requires version 3.8 or higher.
-- A **Twilio account** with Media Streams enabled.
-- An **OpenAI API key** with access to the realtime API.
-- A **Gmail account** (or equivalent SMTP service) for sending emails.
-
-## Installation
-
-1. **Clone the Repository:**
-
-   ```bash
-   git clone https://github.com/your-username/MedAIHack.git
-   cd MedAIHack
